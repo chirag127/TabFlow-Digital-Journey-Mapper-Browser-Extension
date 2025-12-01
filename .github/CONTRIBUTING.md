@@ -1,55 +1,96 @@
-# 🚀 Contributing to TabFlow-Navigation-Path-Analytics-Browser-Extension
+# Contributing to TabFlow Digital Journey Mapper
 
-Thank you for considering contributing to TabFlow! We appreciate your interest in helping to improve this advanced browser extension for navigation path analytics.
+Thank you for considering contributing to `TabFlow-Digital-Journey-Mapper-Browser-Extension`! As an Apex-standard project, we uphold rigorous standards for code quality, architectural integrity, and developer experience. We operate on the principle of "Zero-Defect, High-Velocity, Future-Proof."
 
-This project adheres to the **Apex Technical Authority** standards, focusing on Zero-Defect, High-Velocity, and Future-Proof development. We expect all contributions to align with these principles and the established architectural patterns.
+## 1. Governance and Standards
 
-## 💡 Core Principles
+### 1.1 Code of Conduct
+By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). We maintain a professional, respectful, and high-performance development environment.
 
-*   **Code Quality:** Aim for readable, maintainable, and well-tested code. Adhere to SOLID, DRY, and KISS principles.
-*   **Modularity:** Contributions should align with the existing modular architecture. New features should be self-contained.
-*   **Performance:** Optimize for speed and efficiency. Browser extensions have resource constraints.
-*   **Security:** Implement robust input validation and sanitization. Follow the DevSecOps protocol.
-*   **Documentation:** All significant code changes, new features, or bug fixes must be accompanied by updated documentation, especially within the `README.md` and relevant code comments (explaining the *why*, not the *what*).
+### 1.2 Architectural Principles
+We adhere strictly to the following principles for browser extension development:
 
-## 🛠️ Getting Started
+*   **Feature-Sliced Design (FSD):** Codebase structure is organized by feature layers (shared, entities, features, widgets, pages, app) to ensure scalability and clear boundaries.
+*   **SOLID & DRY:** Code must be modular, reusable, and maintainable. Avoid unnecessary duplication.
+*   **High TypeScript Strictness:** All new code must be written in TypeScript and pass strict checks. Avoid reliance on `any`.
+*   **API Integrity:** Browser API interactions must be robustly handled, especially for persistence (IndexedDB, Storage API) and permissions.
 
-1.  **Fork the Repository:** Create your own fork of the `TabFlow-Navigation-Path-Analytics-Browser-Extension` repository.
-2.  **Clone Your Fork:** `git clone git@github.com:<your-username>/TabFlow-Navigation-Path-Analytics-Browser-Extension.git`
-3.  **Set Up Development Environment:** Follow the setup instructions in the `README.md` to install dependencies and set up the build process.
-    *   **Note:** This project uses **TypeScript 6.x**, **Vite 7**, **WXT** for browser extensions, and is linted/formatted by **Biome**. Testing is handled by **Vitest** and **Playwright**.
-4.  **Create a Feature Branch:** `git checkout -b feature/your-feature-name` or `git checkout -b fix/bug-description`
+## 2. Setting Up the Development Environment
 
-## ✅ Contribution Workflow
+`TabFlow` is built using **WXT (Web Extension Toolkit)**, **Vite**, and **TypeScript**, targeting performance and cross-browser compatibility.
 
-1.  **Make Your Changes:** Implement your feature or fix the bug.
-2.  **Write Tests:** Ensure your changes are covered by unit tests (`*.test.ts`) and, if applicable, end-to-end tests.
-3.  **Lint and Format:** Run `biome check --apply` to ensure code quality and formatting standards are met.
-4.  **Test Your Changes:** Execute `vitest` to run unit tests and `npx playwright test` for E2E tests. Ensure all tests pass and there are no console errors.
-5.  **Commit Your Changes:** Use **Conventional Commits** for your messages (e.g., `feat: add user-defined theme settings`, `fix: correct data visualization rendering bug`).
-    ```bash
-    git add .
-    git commit -m "feat: implement new analytics export format"
-    ```
-6.  **Push to Your Fork:** `git push origin feature/your-feature-name`
-7.  **Open a Pull Request:** Create a new Pull Request from your fork to the main `TabFlow-Navigation-Path-Analytics-Browser-Extension` repository.
-    *   Ensure the PR title follows the Conventional Commits format.
-    *   Provide a clear and concise description of your changes.
-    *   Link to any relevant issues.
+### Prerequisites
 
-## 📝 Issue Tracking
+1.  **Node.js:** v20.x or higher (LTS recommended).
+2.  **uv:** Highly recommended for ultra-fast, secure dependency management. (Optional fallback: `npm`)
+3.  **Git:** Latest version.
 
-*   **Bugs:** Please report bugs using the **Bug Report Issue Template**. Provide detailed steps to reproduce, expected behavior, and actual behavior.
-*   **Feature Requests:** Suggest new features via the **Feature Request Issue Template** (if available, otherwise open a new issue with the `enhancement` label).
+### Installation
 
-## ⚖️ License
+bash
+# 1. Clone the repository
+git clone https://github.com/chirag127/TabFlow-Digital-Journey-Mapper-Browser-Extension.git
+cd TabFlow-Digital-Journey-Mapper-Browser-Extension
 
-By contributing to this project, you agree that your contributions will be licensed under the **CC BY-NC 4.0 License**.
+# 2. Install dependencies using uv (or npm if uv is unavailable)
+uv sync
 
-## 🤝 Community & Support
+# 3. Start the development server (WXT handles hot reloading and build)
+npm run dev
 
-If you have questions or need clarification, please open an issue. We strive to foster a collaborative and supportive environment.
 
-**Let's build the best navigation analytics extension together!**
+The extension will be built into the `dist` directory, ready for manual loading into your development browser (e.g., Chrome's `chrome://extensions/` or Firefox's `about:debugging#/runtime/this-firefox`).
 
-**Star ⭐ this Repo** to show your support and stay updated!
+## 3. Standard Workflow
+
+We utilize the standard GitHub Flow for contributions:
+
+1.  **Fork** the repository: `https://github.com/chirag127/TabFlow-Digital-Journey-Mapper-Browser-Extension`.
+2.  **Clone** your fork locally.
+3.  **Create a feature branch:** `git checkout -b feature/descriptive-summary`.
+4.  **Commit:** Use clear, concise commit messages that summarize the change (Conventional Commits style is preferred).
+5.  **Push** your branch.
+6.  **Open a Pull Request (PR):** Target the `main` branch of the upstream repository.
+
+## 4. Testing and Linting
+
+All contributions **must** pass the continuous integration (CI) pipeline checks. Running these locally is mandatory before submitting a PR.
+
+### 4.1 Linting and Formatting (Biome)
+
+We use **Biome** for ultra-fast, professional formatting and linting standards.
+
+bash
+# Check for formatting/linting issues
+npm run lint
+
+# Automatically fix most issues (recommended practice)
+npm run format
+
+
+### 4.2 Testing (Vitest & Playwright)
+
+New features require high coverage via unit tests, and bug fixes must include regression tests.
+
+bash
+# Run all unit and integration tests (Vitest)
+npm run test
+
+# Run End-to-End tests (Playwright) - Use this for critical user journeys
+# npm run test:e2e
+
+
+## 5. Submitting a Pull Request (PR)
+
+All PRs require architectural review and must satisfy the CI checks. Ensure your PR description adheres to the structure defined in the [.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md).
+
+### PR Checklist (Mandatory Review Gate)
+
+*   [ ] I have read the Contributing Guidelines and the [Agent Directives (AGENTS.md)](AGENTS.md).
+*   [ ] The code adheres to the **Feature-Sliced Design (FSD)** architecture and is logically layered.
+*   [ ] My code is compliant with **Strict TypeScript** standards.
+*   [ ] All unit tests pass locally (`npm run test`).
+*   [ ] The code has been formatted and linted using `npm run format`.
+*   [ ] Functionality is verified across the target browsers (Chrome/Firefox).
+*   [ ] Documentation (internal comments, API docs, or README updates) has been added/updated as necessary.
+*   [ ] The pull request references any related issues (e.g., `Fixes #123`, `Relates to #456`).
