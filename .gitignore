@@ -1,51 +1,83 @@
-# Node.js
+# Node.js & Dependency Management
+# -----------------------------------------------------------------------------
+# Dependency directories
 node_modules/
-.npm
-.yarn/
-build/
-dist/
-out/
-coverage/
+.pnpm-store/
+
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Vite/WXT specific build artifacts and caches
-.vite/
+# Optional cache files
+.npm/
+.eslintcache
+.node_repl_history
+
+
+# Browser Extension & Build Tools (Vite, WXT)
+# -----------------------------------------------------------------------------
+# WXT (Web Extension Framework) artifacts
 .wxt/
-wxt-dist/
-web-ext-data/
+.output/
 
-# Environment variables
-.env
-.env.local
-.env.*.local
+# Vite build output and cache
+dist/
+dist-ssr/
+.vite/
+*.local
 
-# Editor/IDE configurations
+# Packaged extension files (do not commit builds)
+*.zip
+*.crx
+*.xpi
+*.pem
+
+
+# Testing & Coverage
+# -----------------------------------------------------------------------------
+# Test coverage reports
+coverage/
+.nyc_output/
+
+
+# OS & Editor specific
+# -----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/
+
+# JetBrains IDEs (WebStorm, etc.)
 .idea/
+
+# Other
 *.suo
-*.user
-*.sln.docstates
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# OS generated files
-.DS_Store
-Thumbs.db
 
-# Test related outputs
-.vitest/
-
-# Biome cache or configuration (if not intended for commit)
-.biome/
-
-# Other common temporary files
-*~
-*.bak
-*.swp
-*.swo
-*.tmp
+# Environment Variables
+# -----------------------------------------------------------------------------
+# Local environment configurations
+.env
+.env.local
+.env.*.local
